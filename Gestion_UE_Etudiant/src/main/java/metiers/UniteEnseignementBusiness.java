@@ -1,6 +1,5 @@
 package metiers;
 
-
 import entities.UniteEnseignement;
 import java.util.ArrayList;
 import java.util.Iterator;

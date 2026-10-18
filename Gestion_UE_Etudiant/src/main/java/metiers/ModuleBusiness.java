@@ -8,26 +8,26 @@ import java.util.List;
 
 public class ModuleBusiness {
     private static List<Module> modules;
-private UniteEnseignementBusiness uniteEnseignementBusiness=new UniteEnseignementBusiness();
+    private UniteEnseignementBusiness uniteEnseignementBusiness=new UniteEnseignementBusiness();
     public ModuleBusiness() {
         modules = new ArrayList<Module>();
         // Initialisation avec quelques données de test
-       modules.add(new Module("M101", "Algorithmique", 3, 30, Module.TypeModule.PROFESSIONNEL,uniteEnseignementBusiness.getUEByCode(1)));
-       modules.add(new Module("M102", "Base de données", 2, 20, Module.TypeModule.PROFESSIONNEL,uniteEnseignementBusiness.getUEByCode(1)));
-      modules.add(new Module("M201", "Communication", 1, 15, Module.TypeModule.TRANSVERSAL,uniteEnseignementBusiness.getUEByCode(2)));
+        modules.add(new Module("M101", "Algorithmique", 3, 30, Module.TypeModule.PROFESSIONNEL,uniteEnseignementBusiness.getUEByCode(1)));
+        modules.add(new Module("M102", "Base de données", 2, 20, Module.TypeModule.PROFESSIONNEL,uniteEnseignementBusiness.getUEByCode(1)));
+        modules.add(new Module("M201", "Communication", 1, 15, Module.TypeModule.TRANSVERSAL,uniteEnseignementBusiness.getUEByCode(2)));
     }
 
     // Ajouter un module
     public boolean addModule(Module module) {
 
         int code=module.getUniteEnseignement().getCode();
-       UniteEnseignement ue=uniteEnseignementBusiness.getUEByCode(code);
-       if(ue!=null){
-           module.setUniteEnseignement(ue);
-           return modules.add(module);
-    }
+        UniteEnseignement ue=uniteEnseignementBusiness.getUEByCode(code);
+        if(ue!=null){
+            module.setUniteEnseignement(ue);
+            return modules.add(module);
+        }
         return false;
-}
+    }
 
     // Récupérer un module par son matricule
     public Module getModuleByMatricule(String matricule) {
